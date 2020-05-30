@@ -5,7 +5,7 @@ A basic social network.
 This section will show how to get a local copy running on a local machine.
 
 
-## Prerequisites
+### Prerequisites
 Make sure to have Maven and Java 8 installed.
 
 
