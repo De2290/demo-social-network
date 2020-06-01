@@ -1,11 +1,13 @@
 package com.de2290.imageBoard.API;
 
+import java.util.UUID;
+
 public class Post {
 
     private String user;
     private String url;
     private String caption;
-
+    private UUID postUUID;
     public Post() {
     }
 
@@ -13,6 +15,7 @@ public class Post {
         this.user = user;
         this.url = url;
         this.caption = caption;
+        this.postUUID = UUID.randomUUID();
     }
 
     public String getUser() {
@@ -39,5 +42,12 @@ public class Post {
         this.caption = caption;
     }
 
+    public UUID getpostUUID() {
+        return this.postUUID;
+    }
+
+    public void setpostUUID(UUID uuid) {
+        this.postUUID = uuid;
+    }
     
 }

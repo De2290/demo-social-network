@@ -1,11 +1,13 @@
 package com.de2290.imageBoard.API;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -59,8 +61,6 @@ public class APIBackend {
     public ArrayList<Post> getPosts() {
         return this.posts;
     }
-    
-
 
     @PostMapping("/api/register")
     public HttpStatus register(@RequestBody LoginForm l) {
@@ -69,10 +69,14 @@ public class APIBackend {
     }
 
 
+    @GetMapping("/api/getPostbyUUID")
+    public Post getUUIDPost(@RequestParam UUID uuid) {
+        for (Post p : posts) {
+            if (p.getpostUUID().equals(uuid)) {
+                return p;
+            }
+        }
 
-
-
-
-
-    
+        return null;
+    }    
 }
